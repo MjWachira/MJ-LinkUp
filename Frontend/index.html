@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/assets/events.css">
     <title>Landing Page</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
                 </div>
                 <img class="pimg" src="/images/pic1.jpg" alt="">
                 <h3>John Wachira</h3>
-                <p>@mjwachira</p>
+                <p class="username">@mjwachira</p>
             </div>
             <div class="sugfriends">
                 <h3>Suggested Friends</h3>
@@ -54,47 +55,130 @@
             </div>
         </div>
         <div class="center">
-            <button class="post">What's on your mind </button>
+            <!-- Button to open the modal -->
+            <button class="post" id="openModalBtn">Whats on your mind</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" id="closeModalBtn">&times;</span>
+                    <h2> Post to feeds</h2>
+                    <form action="">
+                        <label for="">Post Description</label>
+                        <input class="desinput" type="text"  placeholder=" Post description">
+                        <label for="">Input an image</label>
+                        <input type="file" >
+                        <div class="frmbtn">
+                            <input class="submit" type="submit" value="Post">
+                            <button class="cancel"> Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="postbox">
-                <img class="postpimg" src="/images/pic1.jpg" alt="">
-                <p>@mjwachira</p>
-                <p>Hello guys heres my new shoe</p>
-                <img class="postimg" src="/images/pic1.jpg" alt="">
+
+                <div class="postprofile">
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <img class="postpimg" src="/images/pic1.jpg" alt="">
+                            <p class="username">@mjwachira</p>
+                        </div>
+                        <p>4hrs ago</p>
+                        <img src="/icons/dots.svg" style="height: 20px;" alt="">
+                </div>
+                <div class="postcontent">
+                    <p>Hello guys heres my new shoe</p>
+                    <img class="postimg" src="/images/pic1.jpg" alt="">
+                </div>
+
                 <div class="pbtn">
                     <button><img src="/icons/uiw_like-o.svg" alt="">200 likes</button>
                     <button><img src="/icons/Vector.svg" alt="">100 comments</button>
-                    <button><img src="/icons/uil_share.svg" alt=""> Share</button>
+                    <button><img src="/icons/uil_share.svg" alt="">Share</button>
+                </div>
+
+            </div>
+            <div class="postbox">
+
+                <div class="postprofile">
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <img class="postpimg" src="/images/pic1.jpg" alt="">
+                            <p class="username">@mjwachira</p>
+                        </div>
+                        <p>4hrs ago</p>
+                        <img src="/icons/dots.svg" style="height: 20px;" alt="">
+                </div>
+                <div class="postcontent">
+                    <p>Hello guys heres my new shoe</p>
+                    <!-- <img class="postimg" src="/images/pic1.jpg" alt=""> -->
+                </div>
+
+                <div class="pbtn">
+                    <button><img src="/icons/uiw_like-o.svg" alt="">200 likes</button>
+                    <button><img src="/icons/Vector.svg" alt="">100 comments</button>
+                    <button><img src="/icons/uil_share.svg" alt="">Share</button>
                 </div>
                 
             </div>
+            <div class="postbox">
+
+                <div class="postprofile">
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <img class="postpimg" src="/images/pic1.jpg" alt="">
+                            <p class="username">@mjwachira</p>
+                        </div>
+                        <p>4hrs ago</p>
+                        <img src="/icons/dots.svg" style="height: 20px;" alt="">
+                </div>
+                <div class="postcontent">
+                    <p>Hello guys heres my new shoe</p>
+                    <img class="postimg" src="/images/pic1.jpg" alt="">
+                </div>
+
+                <div class="pbtn">
+                    <button><img src="/icons/uiw_like-o.svg" alt="">200 likes</button>
+                    <button><img src="/icons/Vector.svg" alt="">100 comments</button>
+                    <button><img src="/icons/uil_share.svg" alt="">Share</button>
+                </div>
+                
+            </div>
+
         </div>
         <div class="right">
             <button>
-                <div class="i-btn">
-                    <img src="/icons/home.svg" alt=""> 
-                    <p>Feeds</p>
-                </div>
+                <a href="/index.css">
+                    <div class="i-btn">
+                        <img src="/icons/home.svg" alt=""> 
+                        <p>Feeds</p>
+                    </div>    
+                </a>
             </button>
             <button>
-                <div class="i-btn">
-                    <img src="/icons/watch.svg" alt=""> 
-                    <p>Watch</p>
-                </div>
+                <a href="/watch.html">
+                    <div class="i-btn">
+                        <img src="/icons/watch.svg" alt=""> 
+                        <p>Watch</p>
+                    </div>
+                </a>
             </button>
             <button>
-                <div class="i-btn">
-                    <img src="/icons/friends.svg" alt="" style="margin-top: -10px;"> 
-                    <p>Friends</p>
-                </div>
+                <a href="/friends.html">
+                    <div class="i-btn">
+                        <img src="/icons/friends.svg" alt="" style="margin-top: -10px;"> 
+                        <p>Friends</p>
+                    </div>
+                </a>
             </button>
             <button>
-                <div class="i-btn">
-                    <img src="/icons/account.svg" alt="" style="width: 40px;"> 
-                    <p>Account</p>
-                </div>
+                <a href="/profile.html">
+                    <div class="i-btn">
+                        <img src="/icons/account.svg" alt="" style="width: 40px;"> 
+                        <p>Account</p>
+                    </div>
+                </a>
             </button>
             
         </div>
     </div>
+    <script src="/assets/events.js"></script>
 </body>
 </html>

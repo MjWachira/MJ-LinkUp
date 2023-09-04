@@ -66,6 +66,9 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+.right a{
+    
+}
 .i-btn{
     display: flex;
     justify-content: space-around;
@@ -77,7 +80,7 @@ body{
 .center{
     display: flex;
     flex-direction: column;
-    height: 87vh;
+    height: 90vh;
     width: 60vw;
     overflow: auto;
 }
@@ -86,28 +89,88 @@ body{
     width: 95%;
     margin-left: auto;
     margin-right: auto;
-    height: 30px;
+    height: 10%;
+    padding: 10px;
+    background-color: rgb(168, 196, 230);
+    border: none;
+    border-radius: 10px;
 }
 .postbox{
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    width: 95%;
-    height: 300px;
+    width: 90%;
+    /* height:; */
     background-color: white;
     margin-left: auto;
     margin-right: auto;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: space-around;
 }
 .postpimg{
     width: 30px;
     height: 30px;
+    border-radius: 15px;
 
+}
+.postprofile{
+    display: flex;
+    flex-direction:row;
+    width: 98%;
+    /* border: solid red; */
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+.username{
+    color: rgb(115, 115, 243);
+}
+.postcontent{
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 98%;
+    /* height: 250px; */
+    /* justify-content: center; */
 }
 .postimg{
     width: 80%;
     height: 200px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
+}
+.pbtn{
+    display: flex;
+    width: 98%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.pbtn button{
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    height: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* gap: 2%; */
+    border: none;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 2px;
+    background-color: rgb(255, 255, 255);
+}
+.pbtn button:hover{
+    background-color: rgb(154, 154, 241);
+    /* color: white; */
+    cursor: pointer;
+    transition: 0.51s;
+}
+.pbtn img{
+    width:20px;
 }
 .left{
     display: flex;
