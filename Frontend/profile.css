@@ -32,15 +32,17 @@ body{
 .app{
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 .top{
     width: 100vw;
     background-color: rgb(255, 255, 255);
 }
+
 .pbox{
     margin: auto;
     width: 100vw;
-    height:110px;
+    height:105px;
     border-radius: 50px;
     margin-bottom: 20px;
     display: flex;
@@ -51,7 +53,7 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     height: 60%;
     margin: auto;
 }
@@ -71,4 +73,138 @@ body{
     margin-top: -65px;
     margin-bottom: 10px;
     z-index: 1;
+}
+.bottom{
+    display: flex;
+    width: 100%;
+    /* justify-content: center; */
+}
+.right{
+    margin-top: 10px;
+    /* position: relative; */
+    /* height: ; */
+    width: 15vw;
+    min-width: 130px;
+    max-width: 250px;
+    /* border: solid rgb(29, 29, 61); */
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+}
+.right img{
+    width: 38px;
+    padding-right:3px;
+}
+.right button{
+    width: 99%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+.right a{
+    text-decoration: none;
+    color: black;
+}
+.i-btn{
+    display: flex;
+    justify-content: space-around;
+    /* gap: 12%; */
+}
+.i-btn p{
+    margin-top: 6px;
+}
+.allposts{
+    margin-left: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* justify-content: center; */
+}
+.postbox{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    /* height:; */
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: space-around;
+    margin: 5px;
+}
+.postpimg{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+
+}
+.postprofile{
+    display: flex;
+    flex-direction:row;
+    width: 98%;
+    /* border: solid red; */
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+.username{
+    color: rgb(115, 115, 243);
+}
+.postcontent{
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 98%;
+    /* height: 250px; */
+    /* justify-content: center; */
+}
+.postimg{
+    width: 80%;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+.pbtn{
+    display: flex;
+    width: 98%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.pbtn button{
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    height: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* gap: 2%; */
+    border: none;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 2px;
+    background-color: rgb(255, 255, 255);
+}
+.pbtn button:hover{
+    background-color: rgb(154, 154, 241);
+    /* color: white; */
+    cursor: pointer;
+    transition: 0.51s;
+}
+.pbtn img{
+    width:20px;
 }
