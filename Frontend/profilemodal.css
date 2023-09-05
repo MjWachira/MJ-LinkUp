@@ -1,0 +1,65 @@
+ /* Styling for the modal container */
+ .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Styling for the modal content */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(203, 219, 250);
+    height: 470px;
+    width: 50%;
+    max-width: 400px;
+    margin: 10% auto; /* Center the modal vertically and horizontally */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Close button for the modal */
+.close-button {
+    display: block;
+    text-align: right;
+    cursor: pointer;
+}
+.modal-content form{
+    display: flex;
+    height: 80%;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+}
+.desinput{
+    
+}
+.frmbtn{
+    display: flex;
+    justify-content: space-between;
+}
+.submit{
+    color: white;
+    background-color: rgb(115, 115, 255);
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cancel{
+    color: white;
+    background-color: rgb(2, 2, 22);
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
