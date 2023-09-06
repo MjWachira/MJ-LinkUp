@@ -11,10 +11,10 @@
 
 /* Styling for the modal content */
 .modal-content {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     background-color: rgb(203, 219, 250);
-    height: 470px;
+    /* height: 670px; */
     width: 50%;
     max-width: 400px;
     margin: 10% auto; /* Center the modal vertically and horizontally */

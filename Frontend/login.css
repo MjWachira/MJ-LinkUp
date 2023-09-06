@@ -79,3 +79,13 @@ form a{
 form h2, h3{
     color: rgb(19, 17, 139);
 }
+@media screen and (max-width: 950px) {
+    .left{
+        display: none;
+    }
+    .right{
+        width: 90%;
+        justify-content: center;
+        margin: auto;
+    }
+  }

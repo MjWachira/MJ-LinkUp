@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/profile.css">
-    <link rel="stylesheet" href="/profilemodal.css">
     <title>Profile Page</title>
 </head>
 <body>
@@ -27,26 +26,19 @@
                     <p>Email: mjwachira1@gmail.com</p>
                     <p>Phone: 07123456677</p>
                     <p>Friends:290</p>
-                    <p>Posts:21</p>
+                    <p>Posts:3</p>
                 </div>
                 <div>
-                    <button class="post" id="openModalBtn">Edit</button>            
-                    <div id="myModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close-button" id="closeModalBtn">&times;</span>
-                            <h4> Post to feeds</h4>
-                            <form action="">
-                                <label for="">Profile</label>
-                                <input class="" type="text"  placeholder=" Name">
-                                <label for="">Input an image</label>
-                                <input type="file" >
-                                <div class="frmbtn">
-                                    <input class="submit" type="submit" value="Post">
-                                    <button class="cancel"> Cancel</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <button style=" width: 90px;
+                    border: none;
+                    border-radius: 10px;
+                    padding: 5px;
+                    background-color: rgb(207, 208, 252);">
+                        <a style="color: black; 
+                        text-decoration: none;
+                        font-weight: bold;"
+                         href="/profileedit.html">Edit Profile
+                        </a></button>
                 </div>
             </div>
         </div>
@@ -154,9 +146,8 @@
                     
                 </div>
             </div>
-    
+        
         </div>
     </div>
-    <script src="/profilemodal.js"></script>
 </body>
 </html>
