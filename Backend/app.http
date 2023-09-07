@@ -1,0 +1,26 @@
+### MAKING A POST ####
+POST http://localhost:4200/post
+Content-Type: application/json
+
+{
+  "postDescription": "This is a sample post",
+  "postImage": "image.jpg",
+  "userID": "1"
+}
+### GETTING ALL POSTS ###
+GET http://localhost:4200/post
+
+
+### GETTING ALL POSTS ###
+GET http://localhost:4200/post/1
+
+### UPDATING A POST ####
+PUT  http://localhost:4200/post/6
+Content-Type: application/json
+
+{
+  "postDescription": "This is un updated sample post",
+  "postImage": "image.jpg" 
+}
+### DELETING A POST ###
+DELETE  http://localhost:4200/post/1
