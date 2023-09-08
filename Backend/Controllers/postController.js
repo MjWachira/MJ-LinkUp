@@ -1,4 +1,3 @@
-const {v4} = require('uuid');
 const mssql = require('mssql');
 const { sqlConfig } = require('../Config/config');
 
@@ -15,8 +14,6 @@ class Post{
 
 const createPost = async (req, res)=>{
     try {
-        const id = v4()
-
         const {postDescription,postImage, userID, dateCreated} = req.body
         const pool = await mssql.connect(sqlConfig)
         const result = await pool.request()

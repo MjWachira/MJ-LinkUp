@@ -1,21 +1,47 @@
-### MAKING A POST ####
-POST http://localhost:4200/post
+### USERS ENDPOINTS
+
+#### REGISTER USER
+POST  http://localhost:4200/user
 Content-Type: application/json
 
 {
-  "postDescription": "This is a sample post",
+  "fullname": "John Wachira",
+  "username": "mjwachira",
+  "email": "mjwachira1@gmail.com",
+  "password": "12345678"
+}
+
+#### LOGIN USER
+POST  http://localhost:4200/user/login
+Content-Type: application/json
+
+{
+  "username": "mjwachira",
+  "password": "12345678"
+}
+
+
+
+#### POST 
+### MAKING A POST ####
+POST http://localhost:4200/post
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjM0LCJmdWxsbmFtZSI6IkpvaG4gV2FjaGlyYSIsInVzZXJuYW1lIjoibWp3YWNoaXJhIiwiZW1haWwiOiJtandhY2hpcmExQGdtYWlsLmNvbSIsIlBhc3N3b3JkIjoiJDJiJDA0JHhtUXZYRng0QmljWXJabHIuRVppTmViNjJ4YnVGSVR3TVA5UTRGalBhWldlZk9acGVXSDZTIiwiY292ZXJwaWMiOm51bGwsInByb2ZwaWMiOm51bGwsImJpbyI6bnVsbCwiaWF0IjoxNjk0MTgwMDYwLCJleHAiOjE2OTQxODM2NjB9.fCkhJY83SJkdGX554TKactVuIVahREow7x-sBThT07o
+
+{
+  "postDescription": "visiting a friend",
   "postImage": "image.jpg",
-  "userID": "1"
+  "userID": "34"
 }
 ### GETTING ALL POSTS ###
 GET http://localhost:4200/post
 
 
-### GETTING ALL POSTS ###
-GET http://localhost:4200/post/1
+### GETTING SINGLE POSTS ###
+GET http://localhost:4200/post/13
 
 ### UPDATING A POST ####
-PUT  http://localhost:4200/post/6
+PUT  http://localhost:4200/post/13
 Content-Type: application/json
 
 {
@@ -23,4 +49,5 @@ Content-Type: application/json
   "postImage": "image.jpg" 
 }
 ### DELETING A POST ###
-DELETE  http://localhost:4200/post/1
+DELETE  http://localhost:4200/post/13
+
