@@ -61,16 +61,15 @@ const getOnePost = async(req, res)=>{
 }
 const updatePost = async(req, res)=>{
     try {
-        const {postID} = req.params
-        const {postDescription,postImage, userID, dateCreated} = req.body
+        const postID = req.params.postID
+        const {postDescription,postImage} = req.body
         const pool = await mssql.connect(sqlConfig)
         const result = (await pool.request()
-        .input('postID',postID)
+        .input('postID',mssql.Int,postID)
         .input('postDescription', mssql.VarChar, postDescription)
         .input('postImage', mssql.VarChar, postImage)
-        // .input('userID', mssql.VarChar, userID)
-        // .input('dateCreated', mssql.Date, dateCreated)
-        .execute('UpdatePost'));
+        .execute('updatePost'));
+        console.log(result);
 
         console.log(result);
         if(result.rowsAffected == 1){
@@ -83,18 +82,21 @@ const updatePost = async(req, res)=>{
             })
         }
     } catch (error) {
-        return res.json({Error: error})
+        return res.json({Error: error.message})
     }
 }
 const deletePost =async(req, res)=>{
     try{
 
-        const postID = req.params.postID
+        const {postDescription,postImage, dateCreated} = req.body
         const pool = await mssql.connect(sqlConfig)
         const result = await pool.request()
-        .input('postID', postID)
-        .execute('deletePost')
+        .input('postDescription', mssql.VarChar, postDescription)
+        .input('postImage', mssql.VarChar, postImage)
+        // .input('dateCreated', mssql.Date, dateCreated)
+        .execute('updatePost')
         console.log(result)
+
         if(result.rowsAffected == 1){
             res.json({
                     message: 'Post deleted successfully'
@@ -109,11 +111,58 @@ const deletePost =async(req, res)=>{
         return res.json({Error:error})
     }
 }
+const likePost =async(req, res)=>{
+    try {
+        const {postID, userID} = req.body;
+        console.log("like inside")
+        
+        const pool = await mssql.connect(sqlConfig)
+        const result = await pool.request()
+        .input('postID',mssql.Int, postID)
+        .input('userID',mssql.Int, userID)
+        .execute('LikePost')
+
+
+        console.log(result)
+
+        if(result.rowsAffected==1){
+            return res.status(200).json({
+                message: "post liked"})
+        }else{
+            return res.status(200).json({message: "already liked"})
+        }
+    } catch (error) {
+        
+    }
+}
+const unlikePost =async(req, res)=>{
+    try {
+        const {likeID} = req.body;
+        console.log("like inside")
+        
+        const pool = await mssql.connect(sqlConfig)
+        const result = await pool.request()
+        .input('likeID',mssql.Int, likeID)
+        .execute('Unlike')
+        console.log("like inside")
+
+        if(result.rowsAffected==1){
+            return res.status(200).json({message: "post unliked"})
+        }else{
+            return res.status(200).json({message: "could not unlike post"})
+        }
+    } catch (error) {
+        
+    }
+}
+
 
 module.exports={
     createPost,
     getAllPosts,
     getOnePost,
     updatePost,
-    deletePost
+    deletePost,
+    likePost,
+    unlikePost
 }

@@ -79,9 +79,108 @@ const userLogin = async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 };
+const updateUser = async (req , res )=>{
+    try {
+        const userID = req.params.userID
+        const {fullname, coverpic,profpic, email, password} = req.body
+        console.log(password);
+        const salt = await bcrypt.genSalt(10)
+        const hashedPwd = await bcrypt.hash(password, 4);
 
+        const pool = await mssql.connect(sqlConfig)
+        const out = await pool.request()
+        .input('userID', mssql.Int, userID)
+        .input('fullname', mssql.NVarChar(255), fullname)
+        .input('coverPic', mssql.NVarChar(mssql.MAX), coverpic)
+        .input('profPic', mssql.NVarChar(mssql.MAX), profpic)
+        .input('email', mssql.NVarChar(100), email)
+        .input('password', mssql.NVarChar(255), hashedPwd)
+        .execute('UpdateUserProfile')
+        console.log(out)
+        if(out.rowsAffected==1){
+            return res.status(200).json({message: "User updated successfully"})
+        }
+        else{
+            return res.status(200).json({message: "User not updated"})
+        }
+    } catch (error) {
+        if(error.message.includes("UNIQUE KEY")){
+            return res.status(400).json({error: "email already in use"})
+        }
+        return res.json({error:error.message })   
+    }
+}
 
+const followUser = async(req ,res)=>{
+    try {
+
+        const {FollowUserID, FollowedUserID} = req.body;
+        console.log("follow inside")
+        
+        const pool = await mssql.connect(sqlConfig)
+        const result = await pool.request()
+        .input('FollowUserID',mssql.Int, FollowUserID)
+        .input('FollowedUserID',mssql.Int, FollowedUserID)
+        .execute('FollowUser')
+        
+        console.log("follow proc")
+
+        if(result.rowsAffected==1){
+            return res.status(200).json({message: "followed user"})
+        }
+        
+    } catch (error) {
+        return res.json({error:error.message })
+    }
+}
+
+const unfollowUser = async(req ,res)=>{
+    try {
+
+        const {FollowerUserID, FollowedUserID} = req.body;
+        console.log("follow inside")
+        
+        const pool = await mssql.connect(sqlConfig)
+        const result = await pool.request()
+        .input('FollowerUserID',mssql.Int, FollowerUserID)
+        .input('FollowedUserID',mssql.Int, FollowedUserID)
+        .execute('UnfollowUser')
+
+        if(result.rowsAffected==1){
+            return res.status(200).json({message: "unfollowed user"})
+        }
+        else{
+            return res.status(200).json({message: "no such user"})
+        }
+        
+    } catch (error) {
+        return res.json({error:error.message })
+    }
+}
+const getAllUsers = async (req, res)=>{
+    try {
+        const pool = await (mssql.connect(sqlConfig))
+        const allUsers = (await pool.request().execute('getAllUsers')).recordset
+        res.json({allUsers: allUsers})
+    } catch (error) {
+        return res.json({error})
+    }
+}
+const getAllFollows = async (req, res)=>{
+    try {
+        const pool = await (mssql.connect(sqlConfig))
+        const allUser = (await pool.request().execute('getAllFollows')).recordset
+        res.json({allUser: allUser})
+    } catch (error) {
+        return res.json({error:error.message})
+    }
+}
 module.exports = {
     regUser,
-    userLogin
+    userLogin,
+    updateUser,
+    followUser,
+    unfollowUser,
+    getAllUsers,
+    getAllFollows
 }

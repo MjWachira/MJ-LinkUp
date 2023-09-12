@@ -5,9 +5,24 @@ POST  http://localhost:4200/user
 Content-Type: application/json
 
 {
-  "fullname": "John Wachira",
-  "username": "mjwachira",
-  "email": "mjwachira1@gmail.com",
+  "fullname": "kim",
+  "username": "kim",
+  "email": "kim@gmail.com",
+  "password": "12345678"
+}
+### GET ALL USERS
+GET  http://localhost:4200/user
+
+#### UPDATE USER
+PUT   http://localhost:4200/user/1040
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
+
+{
+  "fullname": "kim kimani",
+  "coverpic": "kim.jpg",
+  "profpic": "kimmm.jpg",
+  "email": "kim12@gmail.com",
   "password": "12345678"
 }
 
@@ -16,7 +31,7 @@ POST  http://localhost:4200/user/login
 Content-Type: application/json
 
 {
-  "username": "mjwachira",
+  "username": "kim",
   "password": "12345678"
 }
 
@@ -26,28 +41,119 @@ Content-Type: application/json
 ### MAKING A POST ####
 POST http://localhost:4200/post
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjM0LCJmdWxsbmFtZSI6IkpvaG4gV2FjaGlyYSIsInVzZXJuYW1lIjoibWp3YWNoaXJhIiwiZW1haWwiOiJtandhY2hpcmExQGdtYWlsLmNvbSIsIlBhc3N3b3JkIjoiJDJiJDA0JHhtUXZYRng0QmljWXJabHIuRVppTmViNjJ4YnVGSVR3TVA5UTRGalBhWldlZk9acGVXSDZTIiwiY292ZXJwaWMiOm51bGwsInByb2ZwaWMiOm51bGwsImJpbyI6bnVsbCwiaWF0IjoxNjk0MTgwMDYwLCJleHAiOjE2OTQxODM2NjB9.fCkhJY83SJkdGX554TKactVuIVahREow7x-sBThT07o
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
 
 {
-  "postDescription": "visiting a friend",
-  "postImage": "image.jpg",
-  "userID": "34"
+  "postDescription": "kim visited a friend",
+  "postImage": "image5.jpg",
+  "userID": "1040"
 }
 ### GETTING ALL POSTS ###
 GET http://localhost:4200/post
 
 
 ### GETTING SINGLE POSTS ###
-GET http://localhost:4200/post/13
+GET http://localhost:4200/post/2014
 
 ### UPDATING A POST ####
-PUT  http://localhost:4200/post/13
+PUT  http://localhost:4200/post/2014
 Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
 
 {
-  "postDescription": "This is un updated sample post",
-  "postImage": "image.jpg" 
+  "postDescription": " kim This is un updated sample post",
+  "postImage": "image2.jpg" 
 }
 ### DELETING A POST ###
-DELETE  http://localhost:4200/post/13
+DELETE  http://localhost:4200/post/2014
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
+
+### FOLLOWED PEOPLE POSTS ####
+GET  http://localhost:4200/post
+
+#### COMMENT
+### ADDING A COMMENT ####
+POST http://localhost:4200/comment
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
+
+{
+  "commentDescription": "say hi to friend",
+  "postID": "15",
+  "userID": "36"
+}
+### GETTING ALL POST COMMENTS ###
+GET http://localhost:4200/comment
+
+
+### GETTING SINGLE POST COMMENT ###
+GET http://localhost:4200/comment/10
+
+### UPDATING A POST COMMENT ####
+PUT  http://localhost:4200/comment/10
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
+
+{
+  "commentDescription": "This djdd is un updated sample post"
+}
+### DELETING A COMMENT ###
+DELETE  http://localhost:4200/comment/10
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
+
+
+### LIKE/UNLIKE ####
+#### LIKE
+POST http://localhost:4200/post/like
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIGtpbWFuaSIsInVzZXJuYW1lIjoia2ltIiwiZW1haWwiOiJraW0xMkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRtamE2dTgwRDhFS1Y3NmZBWXd1ZEt1NkMvOFA1NVNwcjhsdUFzczdhRjNUMlBVLlQ0U013SyIsImNvdmVycGljIjoia2ltLmpwZyIsInByb2ZwaWMiOiJraW1tbS5qcGciLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MTQ0MCwiZXhwIjoxNjk0NDQ1MDQwfQ.2yJ15H6llbss2YRebyC8BEpJ_1GJUhTECLOisaCnilo
+
+{
+  "postID": "11",
+  "userID": "36"
+}
+
+#### UNLIKE
+DELETE  http://localhost:4200/post/unlike/16
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwMzgsImZ1bGxuYW1lIjoiSmFtZXMiLCJ1c2VybmFtZSI6IkphbWVzIiwiZW1haWwiOiJqYW1lc0BnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRrVk9adnNNM3YxUmJlUS5mUmZlYlBPaHZ0bjhqV01CdjlxVS5jU2cvWWJxUlVNbXM0NFBBTyIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQzNjA1OSwiZXhwIjoxNjk0NDM5NjU5fQ.jrPxpHcR4sypX5gkTIKWLx0kDxM7R-fPmiUPL4vRyRE
+
+
+
+
+### FOLLOW/UNFOLLOW ####
+#### FOLLOW
+POST http://localhost:4200/user/follow
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIGtpbWFuaSIsInVzZXJuYW1lIjoia2ltIiwiZW1haWwiOiJraW0xMkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRtamE2dTgwRDhFS1Y3NmZBWXd1ZEt1NkMvOFA1NVNwcjhsdUFzczdhRjNUMlBVLlQ0U013SyIsImNvdmVycGljIjoia2ltLmpwZyIsInByb2ZwaWMiOiJraW1tbS5qcGciLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MTQ0MCwiZXhwIjoxNjk0NDQ1MDQwfQ.2yJ15H6llbss2YRebyC8BEpJ_1GJUhTECLOisaCnilo
+
+{
+  "FollowUserID": "34",
+  "FollowedUserID": "36"
+}
+
+
+#### UNFOLLOW
+POST http://localhost:4200/user/unfollow
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIGtpbWFuaSIsInVzZXJuYW1lIjoia2ltIiwiZW1haWwiOiJraW0xMkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRtamE2dTgwRDhFS1Y3NmZBWXd1ZEt1NkMvOFA1NVNwcjhsdUFzczdhRjNUMlBVLlQ0U013SyIsImNvdmVycGljIjoia2ltLmpwZyIsInByb2ZwaWMiOiJraW1tbS5qcGciLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MTQ0MCwiZXhwIjoxNjk0NDQ1MDQwfQ.2yJ15H6llbss2YRebyC8BEpJ_1GJUhTECLOisaCnilo
+
+{
+  "FollowerUserID": "34",
+  "FollowedUserID": "36"
+}
+### All Follows
+GET http://localhost:4200/user/follows
+
+
+
+
+
+
+
+
+
+
+
+
+
 
