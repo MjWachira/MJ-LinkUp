@@ -12,7 +12,8 @@ const addComment = async (req, res)=>{
         .input('userID', mssql.VarChar, userID)
         .input('dateCreated', mssql.Date, dateCreated)
         .execute('addcomment')
-        console.log(result)
+        console.log(result);
+
 
         if(result.rowsAffected[0] == 1){
         return res.json({

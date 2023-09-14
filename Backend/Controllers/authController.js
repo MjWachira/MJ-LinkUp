@@ -10,7 +10,6 @@ const regUser = async(req,res)=>{
     try {
         const {fullname, username, email, password} = req.body
         console.log(password);
-        const salt = await bcrypt.genSalt(10)
         const hashedPwd = await bcrypt.hash(password, 4);
 
         const pool = await mssql.connect(sqlConfig)
@@ -29,7 +28,7 @@ const regUser = async(req,res)=>{
         if (error.message.includes("UNIQUE KEY")) {
             return res.status(400).json({ message: "Email or username already exists" });
         } else {
-            return res.status(500).json({ error: error });
+            return res.status(500).json({ error: error.message });
         }
     }
 }
@@ -52,7 +51,7 @@ const userLogin = async (req, res) => {
 
         if (!user) {
             return res.status(400).json({
-                message: 'User not found', 
+                message: 'user not found', 
             });
         }
         const hashedPwd = user.Password;
@@ -60,16 +59,17 @@ const userLogin = async (req, res) => {
             const comparePwd = await bcrypt.compare(password, hashedPwd);
             console.log(comparePwd); 
             if (comparePwd) {
-                const {password , ...payload}=user
+                const {Password, ...payload} = user
+
                 const token = jwt.sign(payload, process.env.SECRET, { 
                     expiresIn: '3600s' })
                 return res.status(200).json({
                     message: 'Logged in',
-                    token,
+                    token
                 });
                 } else {
                     return res.status(400).json({
-                        message: 'Incorrect password',
+                        message: 'incorrect password',
                 });
             }
         }
@@ -79,6 +79,17 @@ const userLogin = async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 };
+const checkUser = async(req, res)=>{
+    if(req.info){
+        res.json({
+            info:req.info
+            // name:req.info.e_name,
+            // email: req.info.email,
+            // role: req.info.role
+        })
+    }
+}
+
 const updateUser = async (req , res )=>{
     try {
         const userID = req.params.userID
@@ -182,5 +193,6 @@ module.exports = {
     followUser,
     unfollowUser,
     getAllUsers,
-    getAllFollows
+    getAllFollows,
+    checkUser
 }

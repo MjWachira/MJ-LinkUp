@@ -26,7 +26,7 @@
                 <h3>John Wachira</h3>
                 <p class="username">@mjwachira</p>
             </div>
-            <div class="sugfriends">
+            <div class="sugfriends" id="sugfriends">
                 <h3>Suggested Friends</h3>
                 <div class="sfriend">
                     <img class="spimg" src="/icons/use-apps-make-friends 1.png" alt="">
@@ -65,17 +65,22 @@
                 <div class="modal-content">
                     <span class="close-button" id="closeModalBtn">&times;</span>
                     <h2> Post to feeds</h2>
-                    <form action="">
+                    <form action="" id="post-form">
+                        <p id="notification"></p>
                         <label for="">Post Description</label>
-                        <input class="desinput" type="text"  placeholder=" Post description">
+                        <input class="desinput" id="post-des" type="text"  placeholder=" Post description">
                         <label for="">Input an image</label>
-                        <input type="file" >
+                        <input type="file"  id="post-img">
                         <div class="frmbtn">
-                            <input class="submit" type="submit" value="Post">
-                            <button class="cancel"> Cancel</button>
+                            <input class="submit" id="post-form" type="submit" value="Post">
+                            <a href="/index.html" class="cancel">Back</a>
                         </div>
                     </form>
+                    
                 </div>
+            </div>
+            <div class="allposts">
+
             </div>
             <div class="postbox">
 
@@ -195,6 +200,7 @@
             
         </div>
     </div>
+    <script src="/assets/main.js"></script>
     <script src="/assets/events.js"></script>
 </body>
 </html>

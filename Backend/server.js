@@ -1,4 +1,5 @@
 const express= require('express');
+const cors= require('cors');
 const { postRouter } = require('./Routes/postRouter');
 const { userRouter } = require('./Routes/userRouter');
 const { commentRouter } = require('./Routes/commentRouter');
@@ -7,6 +8,7 @@ const { commentRouter } = require('./Routes/commentRouter');
 const app=express()
 
 app.use(express.json())
+app.use(cors())
 app.use('/post',postRouter)
 app.use('/user', userRouter)
 app.use('/comment',commentRouter)

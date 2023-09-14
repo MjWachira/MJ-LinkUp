@@ -4,11 +4,11 @@ const { verifyToken } = require('../Middleware/verifyToken');
 
 const commentRouter = Router();
 
-commentRouter.post('/',verifyToken,addComment)
+commentRouter.post('/',addComment)
 commentRouter.get('/',getAllComments)
 commentRouter.get('/:commentID',getOneComment)
 commentRouter.put('/:commentID',verifyToken,editComment)
-commentRouter.delete('/:commentID',verifyToken, deleteComment)
+commentRouter.delete('/:commentID',deleteComment)
 
 
 module.exports={

@@ -5,11 +5,11 @@ const { verifyToken } = require('../Middleware/verifyToken');
 
 const postRouter =Router();
 
-postRouter.post('/',verifyToken,createPost)
+postRouter.post('/',createPost)
 postRouter.get('/',getAllPosts)
 postRouter.get('/:postID',getOnePost)
 postRouter.put('/:postID',verifyToken,updatePost)
-postRouter.delete('/:postID',verifyToken,deletePost)
+postRouter.delete('/:postID',deletePost)
 postRouter.post('/like',verifyToken,likePost)
 postRouter.delete('/unlike/:likeID',verifyToken,unlikePost)
 

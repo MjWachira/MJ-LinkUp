@@ -29,3 +29,33 @@
             return
         }
     })
+
+if(window.location.pathname=="/register.html"){
+
+    const registration_form = document.querySelector('.register')
+    const txtfullname = document.querySelector('#full-name')
+    const txtusername = document.querySelector('#username')
+    const txtemail = document.querySelector('#email')
+    const txtpassword = document.querySelector('#password') 
+    const txtpassword2 = document.querySelector('#password2') 
+
+    
+
+    registration_form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        let user = 
+        txtfullname.value !== '' &&
+        txtusername.value !=='' &&
+        txtemail.value !== '' && 
+        txtpassword.value !== ''
+         
+        console.log(user)
+
+    })
+
+}
+
+
+
+
+

@@ -88,22 +88,19 @@ const updatePost = async(req, res)=>{
 const deletePost =async(req, res)=>{
     try{
 
-        const {postDescription,postImage, dateCreated} = req.body
+        const postID = req.params.postID
         const pool = await mssql.connect(sqlConfig)
         const result = await pool.request()
-        .input('postDescription', mssql.VarChar, postDescription)
-        .input('postImage', mssql.VarChar, postImage)
-        // .input('dateCreated', mssql.Date, dateCreated)
-        .execute('updatePost')
+        .input('postID', postID)
+        .execute('deletePost')
         console.log(result)
-
-        if(result.rowsAffected == 1){
+        if(result.rowsAffected [1]== 1){
             res.json({
-                    message: 'Post deleted successfully'
+                    message: 'post deleted successfully'
             })
         }else{
             res.json({
-                message: 'Post not found'
+                message: 'post not found'
         })
         }
         

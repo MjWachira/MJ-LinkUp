@@ -14,15 +14,15 @@ Content-Type: application/json
 GET  http://localhost:4200/user
 
 #### UPDATE USER
-PUT   http://localhost:4200/user/1040
+PUT   http://localhost:4200/user/34
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIGtpbWFuaSIsInVzZXJuYW1lIjoia2ltIiwiZW1haWwiOiJraW0xMkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRtamE2dTgwRDhFS1Y3NmZBWXd1ZEt1NkMvOFA1NVNwcjhsdUFzczdhRjNUMlBVLlQ0U013SyIsImNvdmVycGljIjoia2ltLmpwZyIsInByb2ZwaWMiOiJraW1tbS5qcGciLCJiaW8iOm51bGwsImlhdCI6MTY5NDU5OTU2NSwiZXhwIjoxNjk0NjAzMTY1fQ.RbBpaXgH4z_sx1VHRbI9wGBpZAzkDcReRkFHYyxAyFw
 
 {
-  "fullname": "kim kimani",
-  "coverpic": "kim.jpg",
-  "profpic": "kimmm.jpg",
-  "email": "kim12@gmail.com",
+  "fullname": "John Wachira",
+  "coverpic": "https://res.cloudinary.com/du1zkniut/image/upload/v1692710886/samples/smile.jpg",
+  "profpic": "https://res.cloudinary.com/du1zkniut/image/upload/v1692710886/samples/smile.jpg",
+  "email": "mjwachira1@gmail.com",
   "password": "12345678"
 }
 
@@ -31,10 +31,13 @@ POST  http://localhost:4200/user/login
 Content-Type: application/json
 
 {
-  "username": "kim",
+  "username": "lucy",
   "password": "12345678"
 }
 
+###
+GET http://localhost:4200/user/check
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNTksImZ1bGxuYW1lIjoibHVjeSIsInVzZXJuYW1lIjoibHVjeSIsImVtYWlsIjoibHVjeUBnbWFpbC5jb20iLCJjb3ZlcnBpYyI6bnVsbCwicHJvZnBpYyI6bnVsbCwiYmlvIjpudWxsLCJpYXQiOjE2OTQ2MTMxMDcsImV4cCI6MTY5NDYxNjcwN30.EKT5xn6quhZd1aNXfcfAG81QPWc77LgR9cAs7Gn5oLI
 
 
 #### POST 
@@ -58,14 +61,13 @@ GET http://localhost:4200/post/2014
 ### UPDATING A POST ####
 PUT  http://localhost:4200/post/2014
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
 
 {
   "postDescription": " kim This is un updated sample post",
   "postImage": "image2.jpg" 
 }
 ### DELETING A POST ###
-DELETE  http://localhost:4200/post/2014
+DELETE  http://localhost:4200/post/2037
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
 
 ### FOLLOWED PEOPLE POSTS ####
@@ -78,8 +80,8 @@ Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
 
 {
-  "commentDescription": "say hi to friend",
-  "postID": "15",
+  "commentDescription": "say no hi to friend",
+  "postID": "2037",
   "userID": "36"
 }
 ### GETTING ALL POST COMMENTS ###
@@ -98,7 +100,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia
   "commentDescription": "This djdd is un updated sample post"
 }
 ### DELETING A COMMENT ###
-DELETE  http://localhost:4200/comment/10
+DELETE  http://localhost:4200/comment/2
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIiwidXNlcm5hbWUiOiJraW0iLCJlbWFpbCI6ImtpbUBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRKLkxRODVEQ0ppSTZ4L3JFQXUzLmt1S1ZWMjNwS3RTeUxXODhQMml1b1ZQOThzd1FIVHg0bSIsImNvdmVycGljIjpudWxsLCJwcm9mcGljIjpudWxsLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MDkzMiwiZXhwIjoxNjk0NDQ0NTMyfQ.CTu5NyaD-xdU8aFHHRjB5toxfyOzLYVHkshoiPzmRK8
 
 

@@ -57,10 +57,14 @@
 
 .cancel{
     color: white;
+    display: flex;
+    align-items: center;
     background-color: rgb(2, 2, 22);
-    width: 100px;
-    height: 30px;
+    width:60px;
+    height: 16px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
 }
