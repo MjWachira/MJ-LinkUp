@@ -97,4 +97,39 @@ edit_form.addEventListener('submit',(e)=>{
 
     })
 }
+const dataDisplayDiv = document.getElementById("pbox");
 
+    let userID = localStorage.getItem('userID')
+
+    const oneUser = 'http://localhost:4200/user/check';
+
+    fetch(oneUser,{
+    headers:{
+        'Accept': 'application/json',
+        'Content-type': 'application/json',
+        "token": localStorage.getItem('token')
+    },
+    method: "GET"})
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json(); 
+        })
+    .then(data => {
+        const usersHTML = 
+        `
+        <div class="pbox" id="pbox">
+        <div class="bgimg"></div>
+        <img class="pimg" src="${data.info.profpic}" alt="">
+        <h3>${data.info.fullname}</h3>
+        <p class="username" >@${data.info.username}</p>  
+        </div>
+
+        `
+      dataDisplayDiv.innerHTML = usersHTML;
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    });

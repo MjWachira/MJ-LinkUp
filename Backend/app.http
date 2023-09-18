@@ -145,8 +145,8 @@ Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNDAsImZ1bGxuYW1lIjoia2ltIGtpbWFuaSIsInVzZXJuYW1lIjoia2ltIiwiZW1haWwiOiJraW0xMkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQwNCRtamE2dTgwRDhFS1Y3NmZBWXd1ZEt1NkMvOFA1NVNwcjhsdUFzczdhRjNUMlBVLlQ0U013SyIsImNvdmVycGljIjoia2ltLmpwZyIsInByb2ZwaWMiOiJraW1tbS5qcGciLCJiaW8iOm51bGwsImlhdCI6MTY5NDQ0MTQ0MCwiZXhwIjoxNjk0NDQ1MDQwfQ.2yJ15H6llbss2YRebyC8BEpJ_1GJUhTECLOisaCnilo
 
 {
-  "FollowUserID": "34",
-  "FollowedUserID": "36"
+  "FollowUserID": "1059",
+  "FollowedUserID": "34"
 }
 
 
@@ -161,6 +161,12 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwNTksImZ1bGxuYW1lIjoiT
 }
 ### All Follows
 GET http://localhost:4200/user/follows
+
+### Suggested Followers
+GET http://localhost:4200/user/follows/34
+
+### my Followers
+GET http://localhost:4200/user/follow/34
 
 
 

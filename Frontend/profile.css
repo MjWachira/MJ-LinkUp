@@ -37,6 +37,7 @@ body{
 .top{
     width: 100vw;
     background-color: rgb(255, 255, 255);
+    padding: 0;
 }
 
 .pbox{
@@ -48,6 +49,7 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    padding: 6px;
 }
 .pbox div{
     display: flex;
@@ -76,8 +78,10 @@ body{
 }
 .bottom{
     display: flex;
-    width: 100%;
-    /* justify-content: center; */
+    width: 96%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .right{
     margin-top: 10px;
@@ -85,13 +89,14 @@ body{
     /* height: ; */
     width: 15vw;
     min-width: 130px;
-    max-width: 250px;
+    max-width: 450px;
     /* border: solid rgb(29, 29, 61); */
     border-radius: 10px;
     background-color: white;
     display: flex;
     flex-direction: column;
     padding: 10px;
+    height: 90%;
     
 }
 .right img{
@@ -125,10 +130,16 @@ body{
 }
 .allposts{
     margin-left: 1px;
+
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    /* justify-content: center; */
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+
+    
 }
 .postbox{
     margin-top: 10px;
@@ -207,4 +218,72 @@ body{
 }
 .pbtn img{
     width:20px;
+}
+.dispcomments{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 98%;
+    /* background-color: rgb(247, 247, 250); */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+}
+.comment1{
+    display: flex;
+    flex-direction: row;
+    /* background-color: rgb(235, 235, 235); */
+    margin: 10px;
+    padding: 3px;
+    border-radius: 5px;
+    justify-content: space-around;
+    border: solid;
+    border-color: rgb(241, 245, 245);
+}
+.comimg{
+    width: 22px;
+    height: 22px;
+    border-radius: 10px;
+}
+.ccontent{
+    width: 60%;
+    background-color: rgb(198, 219, 236);
+    padding: 5px;
+    border-radius: 10px;
+}
+.comments{
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+.prevcomment{
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.comments form{
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    width: 90%;
+
+}
+.comments input{
+    padding: 5px;
+    outline: none;
+    border: solid 0.5px rgb(155, 155, 238);
+    border-radius: 10px; 
+    margin-left: 10px;   
+    width: 350px;
+}
+.comments img{
+    width: 20px;
+    margin-left: -30px;
+}
+.comments button{
+    border: none;
+    background-color: white;
 }

@@ -205,6 +205,43 @@ const getAllFollows = async (req, res)=>{
         return res.json({error:error.message})
     }
 }
+const suggestedFollowers = async (req, res) => {
+
+    try {
+        const userID = req.params.userID
+            const pool = await mssql.connect(sqlConfig)
+            const users = (await pool.request().input('userID', userID)
+            .execute('ShowUsersNotFollowingMe')).recordset
+            res.json({
+                users:users
+            })
+        
+    } catch (error) {
+        return res.json(error)
+        
+    }
+    
+}
+
+const followers = async (req, res) => {
+
+    try {
+        const userID = req.params.userID
+            const pool = await mssql.connect(sqlConfig)
+            const users = (await pool.request()
+            .input('FollowedUserID', userID)
+            .execute('ShowFollowers')).recordset
+            res.json({
+                users:users
+            })
+        
+    } catch (error) {
+        return res.json(error)
+        
+    }
+    
+}
+
 module.exports = {
     regUser,
     userLogin,
@@ -214,5 +251,7 @@ module.exports = {
     getAllUsers,
     getOneUser,
     getAllFollows,
-    checkUser
+    checkUser,
+    suggestedFollowers,
+    followers
 }

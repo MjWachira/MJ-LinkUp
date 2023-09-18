@@ -27,7 +27,7 @@ method: "GET"})
                 <p class="username">@${data.info.username}</p>
                 <div>
                     <p>Email:${data.info.email}</p>
-                    <p>Friends:290</p>
+                    <p>Friends:4</p>
                     <p>Posts:3</p>
                 </div>
 
@@ -54,16 +54,16 @@ method: "GET"})
 
 
 ///GETTING ALL POSTS
-let id = localStorage.getItem('postID')
+let id = localStorage.getItem('userID')
 
 if(id == null){
-    window.location.href = '/index.html'; 
+    // window.location.href = '/index.html'; 
 }
 
 function fetchAndDisplayPosts() {
-    const onePostsURL = `http://localhost:4200/post/${id}`;
+    const PostsURL = `http://localhost:4200/post/user/${id}`;
 
-    fetch(onePostsURL)
+    fetch(PostsURL)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -71,11 +71,14 @@ function fetchAndDisplayPosts() {
             return response.json();
         })
         .then(data => {
+            // const dataDisplayDiv = document.getElementById("top");
             const displayData = document.querySelector('.allposts');
             console.log(data);
+            
 
-            if (data && data.post && Array.isArray(data.post)) {
-                const postsHTML = data.post.map(post => `
+            if (data && data.posts && Array.isArray(data.posts)) {
+                const postsHTML = data.posts.map(post => `
+
                     <div class="postbox" data-post-id="${post.postID}">
                         <div class="postprofile">
                             <div style="display: flex; gap: 10px; align-items: center;">
@@ -84,7 +87,7 @@ function fetchAndDisplayPosts() {
                             
                             </div>
                             <p>${
-                                date =  (((new Date()-new Date(post.dateCreated))/36000000)).toFixed(2)
+                                date =  (((new Date()-new Date(post.dateCreated))/36000000 )+0.3).toFixed(2)
                             }hrs ago</p>
                             <img src="/icons/dots.svg" style="height: 20px;" alt="">
                         </div>
@@ -99,30 +102,12 @@ function fetchAndDisplayPosts() {
                             <button class="edit-button" data-post-id="${post.postID}">Edit</button>
                             <button class="delete-button" data-post-id="${post.postID}">Delete</button>
                         </div>
+
+                        
                               <div class="dispcomments" id="dispcomments">
-                <div class="comment1" >
-                    <img class="comimg" src="/images/pic1.jpg" alt="img">
-                    <div class="pcom">
-                        <p class="username">@mjwachira</p>
-                        <p>2hrs ago</p>
-                    </div>
-                    <div class="ccontent">
-                        <p>goodwork</p>
-                    </div>
-                    <button class="edit-button" data-post-id="">Edit</button>
-                    <button class="delete-button" data-post-id="">Delete</button>                  
-                </div>
-                <div class="comment1" >
-                    <img class="comimg" src="/images/pic1.jpg" alt="img">
-                    <div class="pcom">
-                        <p class="username">@mjwachira</p>
-                        <p>2hrs ago</p>
-                    </div>
-                    <div class="ccontent">
-                        <p>goodwork</p>
-                    </div>
+                
                                             
-                </div>
+                
             </div>
                         <div class="comments" >
                             <form action="" class="comment-form" data-post-id="${post.postID}">
@@ -131,8 +116,11 @@ function fetchAndDisplayPosts() {
                             </form>
                         </div>
                     </div>
-                `).join("");
+                
+                    `).join("");
                 displayData.innerHTML = postsHTML;
+               
+                
 
                 // Add event listeners for edit and delete buttons
                 const editButtons = document.querySelectorAll('.edit-button');
@@ -145,7 +133,14 @@ function fetchAndDisplayPosts() {
                         const postId = event.target.getAttribute('data-post-id');
                         // Implement the edit logic for postId here
                         // You can open a modal or redirect to an edit page
+
+                        localStorage.setItem('postId', postId)
                         console.log(`Edit post with ID ${postId}`);
+
+                        if (postID){
+                            window.location.href = '/postedit.html'; 
+                        }
+                        // window.location.href = '/postedit.html';
                         
                     });
 
@@ -224,6 +219,10 @@ fetch(apiUrl)
 })
 .catch(error => {
     console.error('Fetch error:', error);
+    displayData.innerHTML= `
+    <div class ='postbox'>
+    <h3> No posts yet </h3>
+    </div>`
 });
 
 
@@ -339,3 +338,4 @@ fetch(apiUrl)
             console.error('Fetch error:', error);
         });
 }
+fetchAndDisplayPosts()

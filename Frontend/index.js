@@ -75,7 +75,8 @@ if(window.location.pathname =='/index.html'){
     // Fetching all users
     const comDisplayDiv = document.querySelector("#sugfriends")
     // Fetching all users
-    const apiUrl = 'http://localhost:4200/user';
+    let id = localStorage.getItem('userID')
+    const apiUrl = `http://localhost:4200/user/follows/${id}`;
 
 
     fetch(apiUrl)
@@ -86,13 +87,13 @@ if(window.location.pathname =='/index.html'){
         return response.json(); 
         })
     .then(data => {
-        const usersHTML = data.allUsers.map(user => `
+        const usersHTML = data.users.map(user => `
         
         <div class="sfriend">
-                    <img class="spimg" src="${user.profpic}" alt="">
+                    <img class="spimg" src="${user.profPic}" alt="">
                     <h5>${user.fullname}</h5>
                     <div class="icons">
-                        <img class="" src="/icons/follow.svg" alt="" style="width: 20px;">
+                        <img id="follow-btn" data-userid="${user.userID}" class="" src="/icons/follow.svg" alt="" style="width: 20px;">
                         <img class="" src="/icons/dismiss.svg" alt="" style="width: 29px ;">
                     </div>
           
@@ -101,7 +102,55 @@ if(window.location.pathname =='/index.html'){
       `).join("");
       // Render the user displays in the div
       comDisplayDiv.innerHTML = usersHTML;
+      const followButtons = document.querySelectorAll("#follow-btn");
         console.log(data);
+
+        followButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const userIdToFollow = button.getAttribute("data-userid");
+                // Implement your follow logic here, e.g., make a POST request to follow the user.
+                console.log(`Follow user with ID ${userIdToFollow}`);
+                const apiUrl = 'http://localhost:4200/user/follow';
+                let token = localStorage.getItem('token')
+        
+                // Data to send in the POST request body
+                const data = {
+                FollowUserID: userIdToFollow,
+                FollowedUserID: id
+                };
+        
+                // Define request headers
+                const headers = {
+                'Content-Type': 'application/json',
+                'token': token
+                };
+        
+                // Configure the fetch request
+                const requestOptions = {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(data)
+                };
+        
+                // Make the POST request
+                fetch(apiUrl, requestOptions)
+                .then(response => {
+                    if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(responseData => {
+                    // Handle the response data here (e.g., check if the follow was successful)
+                    console.log('Follow request successful:', responseData);
+                    window.location.href = '/index.html'; 
+                })
+                .catch(error => {
+                    console.error('Follow request error:', error);
+                });
+        
+            });
+        })
     })
     .catch(error => {
         console.error('Fetch error:', error);
@@ -125,9 +174,10 @@ if(window.location.pathname =='/index.html'){
             .then(data => {
                 const displayData = document.querySelector('.allposts');
                 console.log(data);
+                // const data = data.posts.reverse();
     
                 if (data && data.posts && Array.isArray(data.posts)) {
-                    const postsHTML = data.posts.map(post => `
+                    const postsHTML = data.posts.reverse().map(post => `
                         <div class="postbox" data-post-id="${post.postID}">
                             <div class="postprofile">
                                 <div style="display: flex; gap: 10px; align-items: center;">
@@ -145,9 +195,9 @@ if(window.location.pathname =='/index.html'){
                                 <img class="postimg" src="${post.postImage}" alt="no img">
                             </div>
                             <div class="pbtn">
-                                <button><img src="/icons/uiw_like-o.svg" alt="">5</button>
-                                <button><img src="/icons/Vector.svg" alt="">4 </button>
-                                <button><img src="/icons/uil_share.svg" alt="">1</button>
+                                <button class="like"><img src="/icons/uiw_like-o.svg" alt="">5 Likes</button>
+                                <button><img src="/icons/Vector.svg" alt="">4 Comments</button>
+                                <button><img src="/icons/uil_share.svg" alt="">share</button>
                                 
                             </div>
                             <div class="comments">
