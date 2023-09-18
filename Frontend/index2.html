@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/assets/events.css">
+    <title>Landing Page</title>
+</head>
+<body>
+    <div class="nav">
+        <h2>MJ Linkp</h2>
+        <input type="search" placeholder="search ...">
+        <img src="/icons/tdesign_notification.svg" alt="">
+        <a href="profile.html"><img src="/images/pic1.jpg" alt="profile"></a>
+        <a href="/login.html" style=" color: white; text-decoration: none; font-weight: bold;">Logout</a>
+        
+    </div>
+
+    <div class="app">
+        <div class="left">
+            <div class="pbox" id="pbox">
+                <div class="bgimg">
+                </div>
+                <img class="pimg" src="/images/pic1.jpg" alt="">
+                <h3>John Wachira</h3>
+                <p class="username">@mjwachira</p>
+            </div>
+
+            <div class="friend" style="display: flex;
+             flex-direction: column ; 
+             justify-content: space-between;">
+            <h3 style="color: #525252;;">Suggested Friends</h3>
+
+            <div class="sugfriends" id="sugfriends" >
+                                
+            </div>
+
+            <div>
+                <a href="/friendsuggested.html" class="msug" style="text-decoration: none;">see more suggestions...</a>    
+            </div>
+
+            </div>
+
+
+        </div>
+        <div class="center">
+            <!-- Button to open the modal -->
+            <!-- <button class="post" id="openModalBtn">Whats on your mind</button> -->
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" id="closeModalBtn">&times;</span>
+                    <h2> Post to feeds</h2>
+                    <form action="" id="post-form">
+                        <p id="notification"></p>
+                        <label for="">Post Description</label>
+                        <input class="desinput" id="post-des" type="text"  placeholder=" Post description">
+                        <label for="">Input an image</label>
+                        <input type="file"  id="post-img">
+                        <div class="frmbtn">
+                            <input class="submit" id="post-form" type="submit" value="Post">
+                            <a href="/index.html" class="cancel">Back</a>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="allposts">
+
+            </div>
+                
+            
+        </div>
+        
+        <div class="right">
+            <button>
+                <a href="/index.html">
+                    <div class="i-btn">
+                        <img src="/icons/home.svg" alt=""> 
+                        <p>Feeds</p>
+                    </div>    
+                </a>
+            </button>
+            <button>
+                <a href="/watch.html">
+                    <div class="i-btn">
+                        <img src="/icons/watch.svg" alt=""> 
+                        <p>Watch</p>
+                    </div>
+                </a>
+            </button>
+            <button>
+                <a href="/friends.html">
+                    <div class="i-btn">
+                        <img src="/icons/friends.svg" alt="" style="margin-top: -10px;"> 
+                        <p>Friends</p>
+                    </div>
+                </a>
+            </button>
+            <button>
+                <a href="/profile.html">
+                    <div class="i-btn">
+                        <img src="/icons/account.svg" alt="" style="width: 40px;"> 
+                        <p>Account</p>
+                    </div>
+                </a>
+            </button>
+            
+        </div>
+    </div>
+    <script src="/index2.js"></script>
+    <!-- <script src="/assets/events.js"></script> -->
+</body>
+</html>

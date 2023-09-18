@@ -7,7 +7,7 @@ if(window.location.pathname=="/register.html"){
     const txtpassword2 = document.querySelector('#password2') 
     const reg_notification= document.querySelector('#notification') 
 
-
+    let profpic = "https://res.cloudinary.com/du1zkniut/image/upload/v1692710866/samples/people/boy-snow-hoodie.jpg"
 
     registration_form.addEventListener('submit', (e)=>{
         e.preventDefault();
@@ -34,13 +34,18 @@ if(window.location.pathname=="/register.html"){
         }, 3000);
         console.log('pwd don match')
         return
+
     }
+
         let user = 
         txtfullname.value !== '' &&
+        profpic !=='' &&
         txtusername.value !=='' &&
         txtemail.value !== '' && 
         txtpassword.value !== ''
-         
+        
+        
+
         console.log(user)
         if(user){
             const promise = new Promise ((resolve , reject)=>{
@@ -52,6 +57,7 @@ if(window.location.pathname=="/register.html"){
                     method:'POST',
                     body:JSON.stringify({
                         "fullname":txtfullname.value,
+                        "profpic": profpic,
                         "username":txtusername.value,
                         "email":txtemail.value,
                         "password":txtpassword.value
@@ -134,30 +140,18 @@ if(window.location.pathname =='/login.html'){
                 }).then(res => (res.json())).then(data=>{
                     console.log(data?.message);
 
-                    // window.location.href = '/index.html'; 
+                    let userID =''
 
-                    // loginMsgs.innerHTML = data?.message 
-                    // token = data?.token
+                    userID = data?.info?.userID;
 
-                    
-                    // const userRole = data?.info?.role;
+                    console.log(userID);
 
-                    // console.log(userRole);
+                    localStorage.setItem('userID', userID)
                     
 
-                   
-                    // if (userRole === 'user') {
-                    //     window.location.href = '/userpage.html'; // Redirect for regular users
-                    // } else if (userRole === 'admin') {
-                    //     window.location.href = '/adminpage.html'; // Redirect for admin users
-                    // }
-
-                    // userRole = ''
-
-
-                       
-                    // localStorage.setItem('token', token)
-
+                    if(token && userID){
+                       window.location.href = '/index.html';  
+                    }                  
                    
                 })
             }
@@ -199,12 +193,14 @@ if(window.location.pathname =='/index.html'){
             notification.textContent = 'cant post empty post'
             return
         }
+        
+        let userID=localStorage.getItem('userID')
 
         post = 
         txtpostdes.value !== '' &&
         txtpostimg !=='' 
-        const uid= '1040'
-        console.log(post)
+        const uid= userID
+        console.log(uid)
 
         if(post){
             const promise = new Promise ((resolve , reject)=>{
@@ -335,7 +331,10 @@ if(window.location.pathname =='/index.html'){
                                     <img class="postpimg" src="${post.profpic}" alt="">
                                     <p class="username">@${post.username}</p>
                                 </div>
-                                <p>${post.dateCreated}</p>
+                                <p>${
+                                    
+                                    post.dateCreated
+                                }</p>
                                 <img src="/icons/dots.svg" style="height: 20px;" alt="">
                             </div>
                             <div class="postcontent">
@@ -416,6 +415,43 @@ if(window.location.pathname =='/index.html'){
                 console.error('Fetch error:', error);
             });
     }
+    const dataDisplayDiv = document.getElementById("pbox");
+
+    let userID = localStorage.getItem('userID')
+
+    const oneUser = 'http://localhost:4200/user/check';
+
+    fetch(oneUser,{
+    headers:{
+        'Accept': 'application/json',
+        'Content-type': 'application/json',
+        "token": localStorage.getItem('token')
+    },
+    method: "GET"})
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json(); 
+        })
+    .then(data => {
+        const usersHTML = 
+        `
+        <div class="pbox" id="pbox">
+        <div class="bgimg"></div>
+        <img class="pimg" src="${data.info.profpic}" alt="">
+        <h3>${data.info.fullname}</h3>
+        <p class="username" >@${data.info.username}</p>  
+        </div>
+
+        `
+      dataDisplayDiv.innerHTML = usersHTML;
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
     
     // Call the function to fetch and display posts
     fetchAndDisplayPosts();

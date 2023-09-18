@@ -179,9 +179,44 @@ body{
 .pbtn img{
     width:20px;
 }
+.dispcomments{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 98%;
+    /* background-color: rgb(247, 247, 250); */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+}
+.comment1{
+    display: flex;
+    flex-direction: row;
+    /* background-color: rgb(235, 235, 235); */
+    margin: 10px;
+    padding: 3px;
+    border-radius: 5px;
+    justify-content: space-around;
+    border: solid;
+    border-color: rgb(241, 245, 245);
+}
+.comimg{
+    width: 22px;
+    height: 22px;
+    border-radius: 10px;
+}
+.ccontent{
+    width: 60%;
+    background-color: rgb(198, 219, 236);
+    padding: 5px;
+    border-radius: 10px;
+}
 .comments{
     display: flex;
     flex-direction: column;
+    width: 99%;
+    margin-right: auto;
+    margin-left: auto;
+
 }
 .prevcomment{
     margin: auto;
@@ -190,11 +225,14 @@ body{
     flex-direction: column;
 }
 .comments form{
+    margin-right: auto;
+    margin-left: auto;
     display: flex;
-    width: 80%;
+    width: 90%;
 
 }
 .comments input{
+    padding: 5px;
     outline: none;
     border: solid 0.5px rgb(155, 155, 238);
     border-radius: 10px; 
@@ -246,6 +284,8 @@ body{
 .sugfriends{
     display: flex;
     flex-direction: column;
+    height: 100%;
+    overflow: auto;
 
 }
 .sfriend{
@@ -259,9 +299,12 @@ body{
     padding: 5px;
     border-radius: 10px;
     align-items: center;
+    
 }
 .sfriend .spimg{
     width: 30px;
+    height: 30px;
+    border-radius: 20px;
 }
 .icons{
     display: flex;

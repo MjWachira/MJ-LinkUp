@@ -37,6 +37,20 @@ const getAllComments = async (req, res)=>{
         return res.json({error})
     }
 }
+const getOnePostComments = async (req, res)=>{
+    try {
+        const postID = req.params.postID
+        const pool = await mssql.connect(sqlConfig)
+        const comments = (await pool.request()
+        .input('postID', postID)
+        .execute('getCommentsForPost')).recordset
+        res.json({
+            comments:comments
+        })
+    } catch (error) {
+        return res.json({error})
+    }
+}
 const getOneComment = async (req, res)=>{
     try {
         const commentID = req.params.commentID
@@ -103,6 +117,7 @@ const deleteComment = async (req, res)=>{
 module.exports={
     addComment,
     getAllComments,
+    getOnePostComments,
     getOneComment,
     editComment,
     deleteComment

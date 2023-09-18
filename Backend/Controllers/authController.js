@@ -6,15 +6,17 @@ const dotenv=require('dotenv');
 const { loginSchema } = require("../Validators/userValidators");
 dotenv.config();
 
+
 const regUser = async(req,res)=>{
     try {
-        const {fullname, username, email, password} = req.body
+        const {fullname,profpic, username, email, password} = req.body
         console.log(password);
         const hashedPwd = await bcrypt.hash(password, 4);
 
         const pool = await mssql.connect(sqlConfig)
         const out = await pool.request()
         .input('fullname', mssql.VarChar, fullname)
+        .input('profPic', mssql.NVarChar(mssql.MAX), profpic)
         .input('username', mssql.VarChar, username)
         .input('email', mssql.VarChar, email)
         .input('Password', mssql.VarChar, hashedPwd)
@@ -177,6 +179,23 @@ const getAllUsers = async (req, res)=>{
         return res.json({error})
     }
 }
+const getOneUser = async (req, res) => {
+
+try {
+    const userID = req.params.userID
+        const pool = await mssql.connect(sqlConfig)
+        const users = (await pool.request().input('userID', userID).execute('getOneUser')).recordset
+        res.json({
+            users:users
+        })
+    
+} catch (error) {
+    return res.json(error)
+    
+}
+
+}
+
 const getAllFollows = async (req, res)=>{
     try {
         const pool = await (mssql.connect(sqlConfig))
@@ -193,6 +212,7 @@ module.exports = {
     followUser,
     unfollowUser,
     getAllUsers,
+    getOneUser,
     getAllFollows,
     checkUser
 }

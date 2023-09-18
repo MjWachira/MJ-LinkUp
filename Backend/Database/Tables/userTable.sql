@@ -9,14 +9,14 @@ CREATE TABLE usersTable (
     bio NVARCHAR(100)
 );
 
--- DROP TABLE Users;
+DROP TABLE usersTable;
 
 
 INSERT INTO usersTable (fullname, username, email, Password, coverpic, profpic, bio)
 VALUES ('John Doe', 'johndoe123', 'johndoe@example.com', 'hashed_password', 'cover.jpg', 'profile.jpg', 'A brief bio about me');
 
 DELETE FROM usersTable
-WHERE userID = '28';
+WHERE userID = '1040';
 
 
 SELECT * FROM usersTable;

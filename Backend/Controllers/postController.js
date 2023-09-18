@@ -47,6 +47,23 @@ const getAllPosts = async(req, res)=>{
         return res.json({error})
     }
 }
+const getOneUserPosts = async(req, res)=>{
+    try{
+        const userID = req.params.userID
+        
+        const pool = await mssql.connect(sqlConfig)
+        const posts = (await pool.request()
+        .input('userID',mssql.Int, userID)
+        .execute('getUserPost')).recordset
+
+        res.json({
+            posts:posts
+        })
+    }catch(error){
+        return res.json({error})
+    }
+}
+
 const getOnePost = async(req, res)=>{
     try{
         const postID = req.params.postID
@@ -158,6 +175,7 @@ module.exports={
     createPost,
     getAllPosts,
     getOnePost,
+    getOneUserPosts,
     updatePost,
     deletePost,
     likePost,

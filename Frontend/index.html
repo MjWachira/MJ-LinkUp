@@ -19,13 +19,16 @@
 
     <div class="app">
         <div class="left">
-            <div class="pbox">
+            <div class="pbox" id="pbox">
                 <div class="bgimg">
                 </div>
                 <img class="pimg" src="/images/pic1.jpg" alt="">
                 <h3>John Wachira</h3>
                 <p class="username">@mjwachira</p>
             </div>
+
+            <div >
+            <h3>Suggested Friends</h3>
             <div class="sugfriends" id="sugfriends">
                 <h3>Suggested Friends</h3>
                 <div class="sfriend">
@@ -36,26 +39,15 @@
                         <img class="" src="/icons/dismiss.svg" alt="" style="width: 29px ;">
                     </div>
                 </div>
-                <div class="sfriend">
-                    <img class="spimg" src="/icons/use-apps-make-friends 1.png" alt="">
-                    <h5>Milla Jesso</h5>
-                    <div class="icons">
-                        <img class="" src="/icons/follow.svg" alt="" style="width: 20px;">
-                        <img class="" src="/icons/dismiss.svg" alt="" style="width: 29px ;">
-                    </div>
-                </div>
-                <div class="sfriend">
-                    <img class="spimg" src="/icons/use-apps-make-friends 1.png" alt="">
-                    <h5>Milla Jesso</h5>
-                    <div class="icons">
-                        <img class="" src="/icons/follow.svg" alt="" style="width: 20px;">
-                        <img class="" src="/icons/dismiss.svg" alt="" style="width: 29px ;">
-                    </div>
-                </div>
+                
+                
                 <a href="/friendsuggested.html" class="msug" style="text-decoration: none;">see more suggestions...</a>
                 <!-- <p class="msug">see more suggestions...</p> -->
             </div>
+            <a href="/friendsuggested.html" class="msug" style="text-decoration: none;">see more suggestions...</a>
         </div>
+    </div>
+
         <div class="center">
             <!-- Button to open the modal -->
             <button class="post" id="openModalBtn">Whats on your mind</button>
@@ -200,7 +192,7 @@
             
         </div>
     </div>
-    <script src="/assets/main.js"></script>
+    <script src="/index.js"></script>
     <script src="/assets/events.js"></script>
 </body>
 </html>
