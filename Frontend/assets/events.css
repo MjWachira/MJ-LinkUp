@@ -16,7 +16,7 @@
     width: 50%;
     max-width: 400px;
     margin: 10% auto; /* Center the modal vertically and horizontally */
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

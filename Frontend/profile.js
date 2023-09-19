@@ -110,7 +110,7 @@ function fetchAndDisplayPosts() {
                 
             </div>
                         <div class="comments" >
-                            <form action="" class="comment-form" data-post-id="${post.postID}">
+                             <form action="" class="comment-form" data-post-id="${post.postID}">
                                 <input type="text" id= "comment" placeholder = 'input a comment'>
                                 <button><img src="/icons/material-symbols_send-outline.svg" alt=""></button>
                             </form>
@@ -136,7 +136,7 @@ function fetchAndDisplayPosts() {
 
                         localStorage.setItem('postId', postId)
                         console.log(`Edit post with ID ${postId}`);
-
+                        let postID =localStorage.getItem("postId")
                         if (postID){
                             window.location.href = '/postedit.html'; 
                         }
@@ -186,44 +186,45 @@ function fetchAndDisplayPosts() {
                 ////COMMENT
 // const comDisplayDiv = document.getElementById("dispcomments");
 
-let postID = localStorage.getItem('postID')
-const apiUrl = `http://localhost:4200/comment/${postID}`;
+// let postID = localStorage.getItem('postID')
 
-fetch(apiUrl)
-.then(response => {
-    if (!response.ok) {
-    throw new Error('Network response was not ok');
-    }
-    return response.json(); 
-    })
-.then(data => {
-    const usersHTML = data.comments.map(user => `
-    <div class="comment1">
-            <img class="comimg" src="${user.profpic}" alt="">
-        <div class="pcom">   
-            <p class="username">@${user.username}</p> 
-            <p> ${ date =  (((new Date()-new Date(user.dateCreated))/36000000)+0.3).toFixed(2)} hrs ago</p>
-        </div>
-        <div class="ccontent">
-            <p>${user.commentDescription}</p>
-        </div>
-        <button class="edit-button" data-post-id=""></button>
-        <button class="delete-button" data-post-id=""></button>
-    </div>
-  `).join("");
-  // Render the user displays in the div
-  comDisplayDiv.innerHTML = usersHTML;
+// const apiUrl = `http://localhost:4200/comment/${postID}`;
+
+// fetch(apiUrl)
+// .then(response => {
+//     if (!response.ok) {
+//     throw new Error('Network response was not ok');
+//     }
+//     return response.json(); 
+//     })
+// .then(data => {
+//     const usersHTML = data.comments.forEach(user => `
+//     <div class="comment1">
+//             <img class="comimg" src="${user.profpic}" alt="">
+//         <div class="pcom">   
+//             <p class="username">@${user.username}</p> 
+//             <p> ${ date =  (((new Date()-new Date(user.dateCreated))/36000000)+0.3).toFixed(2)} hrs ago</p>
+//         </div>
+//         <div class="ccontent">
+//             <p>${user.commentDescription}</p>
+//         </div>
+//         <button class="edit-button" data-post-id=""></button>
+//         <button class="delete-button" data-post-id=""></button>
+//     </div>
+//   `).join("");
+//   // Render the user displays in the div
+//   comDisplayDiv.innerHTML = usersHTML;
 
 
-    console.log(data);
-})
-.catch(error => {
-    console.error('Fetch error:', error);
-    displayData.innerHTML= `
-    <div class ='postbox'>
-    <h3> No posts yet </h3>
-    </div>`
-});
+//     console.log(data);
+// })
+// .catch(error => {
+//     console.error('Fetch error:', error);
+//     displayData.innerHTML= `
+//     <div class ='postbox'>
+//     <h3> No posts yet </h3>
+//     </div>`
+// });
 
 
                 // postbox.forEach(post => {

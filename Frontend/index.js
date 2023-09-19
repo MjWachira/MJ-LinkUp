@@ -195,7 +195,7 @@ if(window.location.pathname =='/index.html'){
                                 <img class="postimg" src="${post.postImage}" alt="no img">
                             </div>
                             <div class="pbtn">
-                                <button class="like"><img src="/icons/uiw_like-o.svg" alt="">5 Likes</button>
+                                <button class="like" data-post-id="${post.postID}"><img class="like" src="/icons/uiw_like-o.svg" alt="">2 Likes</button>
                                 <button><img src="/icons/Vector.svg" alt="">4 Comments</button>
                                 <button><img src="/icons/uil_share.svg" alt="">share</button>
                                 
@@ -211,17 +211,58 @@ if(window.location.pathname =='/index.html'){
                     displayData.innerHTML = postsHTML;
     
                     // Add event listeners for edit and delete buttons
-                    const editButtons = document.querySelectorAll('.edit-button');
-                    const deleteButtons = document.querySelectorAll('.delete-button');
+                    const editButton = document.querySelectorAll('.like');
+                    const deleteButtons = document.querySelectorAll('.delete');
                     const postbox = document.querySelectorAll('.postbox')
     
-                    editButtons.forEach(button => {
-                        button.addEventListener('click', (event) => {
-                            const postId = event.target.getAttribute('data-post-id');
+                    editButton.forEach(button => {
+                        button.addEventListener('click', (e) => {
+                            e.preventDefault
+                            // const postId = event.target.getAttribute('data-post-id');
                             // Implement the edit logic for postId here
                             // You can open a modal or redirect to an edit page
-                            console.log(`Edit post with ID ${postId}`);
+                            // console.log(`like post with ID ${postId}`);
+                            const apiUrl = 'http://localhost:4200/post/like';
+                            const token = localStorage.getItem('token'); // Replace with your actual authorization token
                             
+                            let userID = localStorage.getItem('userID');
+                            let postID = localStorage.getItem('postID');
+
+                            // Data to send in the POST request body
+                            const data = {
+                            postID: postID,
+                            userID: userID
+                            };
+
+                            // Define request headers
+                            const headers = {
+                            'Content-Type': 'application/json',
+                            'token': token
+                            };
+
+                            // Configure the fetch request
+                            const requestOptions = {
+                            method: 'POST',
+                            headers: headers,
+                            body: JSON.stringify(data)
+                            };
+
+                            // Make the POST request
+                            fetch(apiUrl, requestOptions)
+                            .then(response => {
+                                if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            })
+                            .then(responseData => {
+                                // Handle the response data here (e.g., check if the post was liked successfully)
+                                console.log('Post liked successfully:', responseData);
+                            })
+                            .catch(error => {
+                                console.error('Post like request error:', error);
+                            });
+
                         });
 
                     });

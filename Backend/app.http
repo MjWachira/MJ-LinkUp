@@ -105,7 +105,7 @@ GET http://localhost:4200/comment/2058
 
 
 ### GETTING SINGLE POST COMMENT ###
-GET http://localhost:4200/comment/10
+GET http://localhost:4200/comment/2058
 
 ### UPDATING A POST COMMENT ####
 PUT  http://localhost:4200/comment/10
