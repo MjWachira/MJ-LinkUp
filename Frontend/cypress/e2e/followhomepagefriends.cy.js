@@ -5,7 +5,8 @@ describe('visiting landing page', () => {
         cy.get('#password').type('password123');
         cy.get('input[type=submit]').click();
 
-        cy.get(".like").first().click();
-      
-    });
-});
+        cy.get('#follow-btn').first().click()
+        
+        
+      });
+  });

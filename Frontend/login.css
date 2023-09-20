@@ -44,7 +44,7 @@
     margin: auto;
 }
 #notification{
-    color: red;
+    color: rgb(38, 0, 255);
     border-radius: 10px;
     padding: 3px;
 }

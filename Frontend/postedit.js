@@ -92,7 +92,7 @@ if(window.location.pathname =='/postedit.html'){
     const notification = document.getElementById('notification')
 
     // const txtpostimg ="https://res.cloudinary.com/du1zkniut/image/upload/v1692710889/cld-sample.jpg"
-    let txtpostimg = ""  
+    let txtpostimg = "https://res.cloudinary.com/du1zkniut/image/upload/v1692710874/samples/animals/kitten-playing.gif"  
     
     txtpostimg1.addEventListener('change',(event)=>{
         const target =event.target 

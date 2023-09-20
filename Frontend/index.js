@@ -209,7 +209,7 @@ if(window.location.pathname =='/index.html'){
                             </div>
                             <div class="pbtn">
                                 <button class="like" data-post-id="${post.postID}"><img class="like" src="/icons/uiw_like-o.svg" alt="">2 Likes</button>
-                                <button><img src="/icons/Vector.svg" alt="">4 Comments</button>
+                                <button class="comment" data-post-id="${post.postID}"><img src="/icons/Vector.svg" alt="">4 Comments</button>
                                 <button><img src="/icons/uil_share.svg" alt="">share</button>
                             </div>
                             <div class="comments">

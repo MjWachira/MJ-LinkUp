@@ -155,7 +155,7 @@ if(window.location.pathname =='/index2.html'){
                             <div class="comments" >
                                 <form action="" class="comment-form" data-post-id="${post.postID}">
                                     <input type="text" id= "comment" placeholder = 'input a comment'>
-                                    <button><img src="/icons/material-symbols_send-outline.svg" alt=""></button>
+                                    <button id="commentbtn"><img src="/icons/material-symbols_send-outline.svg" alt=""></button>
                                 </form>
                             </div>
                         </div>

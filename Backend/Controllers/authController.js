@@ -38,10 +38,6 @@ const userLogin = async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // const error = loginSchema.valid(req.body)
-        // if(error){
-        //     return res.status(422).json(error.details)
-        // }
 
         const pool = await mssql.connect(sqlConfig);
         const user = (await pool

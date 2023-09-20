@@ -6,7 +6,7 @@ const txtprofimg = document.getElementById('pimg')
 const txtemail = document.getElementById('email')
 const txtpassword = document.getElementById('password')
 
-let profimg = ""  
+let profimg = "https://res.cloudinary.com/du1zkniut/image/upload/v1692710860/samples/animals/cat.jpg"  
     
     txtprofimg.addEventListener('change',(event)=>{
         const target =event.target 
@@ -26,7 +26,7 @@ let profimg = ""
         }
 })
 
-let coverimg = ""  
+let coverimg = "https://res.cloudinary.com/du1zkniut/image/upload/v1692710860/samples/animals/cat.jpg"  
     
     txtcoverimg.addEventListener('change',(event)=>{
         const target =event.target 
