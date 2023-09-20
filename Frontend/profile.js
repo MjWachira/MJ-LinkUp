@@ -150,9 +150,9 @@ function fetchAndDisplayPosts() {
                     button.addEventListener('click', (event) => {
                         const postId = event.target.getAttribute('data-post-id');                 
                         console.log(`Delete post with ID ${postId}`);
-                        const confirmDelete = window.confirm(`Are you sure you want to delete post with ID ${postId}?`);
+                        // const confirmDelete = window.confirm(`Are you sure you want to delete this post`);
 
-                        if (confirmDelete) {
+                        // if (confirmDelete) {
             
                             fetch(`http://localhost:4200/post/${postId}`, {
                                 method: 'DELETE',
@@ -170,12 +170,12 @@ function fetchAndDisplayPosts() {
                                     // Optionally, you can also remove the deleted post from the UI
 
                                     event.target.closest('.postbox').remove();
-                                    window.location.href = '/index.html'; 
+                                    window.location.href = '/profile.html'; 
                                 })
                                 .catch(error => {
                                     console.error(`Error deleting post with ID ${postId}:`, error);
                                 });
-                        }
+                        // }
 
 
 

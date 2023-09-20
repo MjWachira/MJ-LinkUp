@@ -5,7 +5,7 @@ if(window.location.pathname =='/index.html'){
     const notification = document.getElementById('notification')
 
     // const txtpostimg ="https://res.cloudinary.com/du1zkniut/image/upload/v1692710889/cld-sample.jpg"
-    let txtpostimg = ""  
+    let txtpostimg = "https://res.cloudinary.com/du1zkniut/image/upload/v1692710889/cld-sample.jpg"  
     
     txtpostimg1.addEventListener('change',(event)=>{
         const target =event.target 
@@ -38,6 +38,7 @@ if(window.location.pathname =='/index.html'){
         post = 
         txtpostdes.value !== '' &&
         txtpostimg !=='' 
+
         const uid= userID
         console.log(uid)
 
@@ -173,11 +174,16 @@ if(window.location.pathname =='/index.html'){
             })
             .then(data => {
                 const displayData = document.querySelector('.allposts');
-                console.log(data);
+                // console.log(data.posts.dateCreated);
                 // const data = data.posts.reverse();
     
                 if (data && data.posts && Array.isArray(data.posts)) {
-                    const postsHTML = data.posts.reverse().map(post => `
+                    
+
+                    const postsHTML = data.posts.reverse().map(post =>
+                        // console.log(`${posts.dateCreated}`)
+                        `
+                        
                         <div class="postbox" data-post-id="${post.postID}">
                             <div class="postprofile">
                                 <div style="display: flex; gap: 10px; align-items: center;">
@@ -185,9 +191,16 @@ if(window.location.pathname =='/index.html'){
                                     <p class="username">@${post.username}</p>
                                 
                                 </div>
+                                <script>
+                              
+
+                                </script>
                                 <p>${
-                                    date =  (((new Date()-new Date(post.dateCreated))/36000000)+0.3).toFixed(2)
-                                }hrs ago</p>
+                                    
+                                    // date =  (((new Date()-new Date(post.dateCreated))/3600000)+3).toFixed(2)
+                                    date =  ((new Date(post.dateCreated)).toLocaleTimeString())
+                                    // post.dateCrea
+                                }</p>
                                 <img src="/icons/dots.svg" style="height: 20px;" alt="">
                             </div>
                             <div class="postcontent">
@@ -198,7 +211,6 @@ if(window.location.pathname =='/index.html'){
                                 <button class="like" data-post-id="${post.postID}"><img class="like" src="/icons/uiw_like-o.svg" alt="">2 Likes</button>
                                 <button><img src="/icons/Vector.svg" alt="">4 Comments</button>
                                 <button><img src="/icons/uil_share.svg" alt="">share</button>
-                                
                             </div>
                             <div class="comments">
                                 <form action="">
@@ -332,13 +344,15 @@ if(window.location.pathname =='/index.html'){
                 console.error('Fetch error:', error);
             });
     }
-    const dataDisplayDiv = document.getElementById("pbox");
+
+    const dataDisplayDiv =  document.getElementById("pbox");
+
 
     let userID = localStorage.getItem('userID')
 
     const oneUser = 'http://localhost:4200/user/check';
 
-    fetch(oneUser,{
+   fetch(oneUser,{
     headers:{
         'Accept': 'application/json',
         'Content-type': 'application/json',
@@ -352,7 +366,11 @@ if(window.location.pathname =='/index.html'){
         return response.json(); 
         })
     .then(data => {
+        // let userID = data?.info?.userID
+        // localStorage.setItem('userID',userID)
+
         const usersHTML = 
+        
         `
         <div class="pbox" id="pbox">
         <div class="bgimg"></div>

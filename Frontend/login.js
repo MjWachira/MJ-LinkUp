@@ -93,8 +93,10 @@ if(window.location.pathname =='/login.html'){
     const reg_notification= document.querySelector('#notification'); 
 
     let token =''
+    let userID = ''
+    
 
-    login_form.addEventListener('submit', (e)=>{
+    login_form.addEventListener('submit', async (e)=>{
         e.preventDefault();
         let user = 
         txtusername.value !== '' &&
@@ -103,8 +105,8 @@ if(window.location.pathname =='/login.html'){
         console.log(user)
         
         if(user){
-            const promise = new Promise ((resolve, reject)=>{
-                fetch('http://localhost:4200/user/login',{
+            
+               await fetch('http://localhost:4200/user/login',{
                     headers:{
                         'Accept':'application/json',
                         'Content-type':'application/json'
@@ -119,7 +121,7 @@ if(window.location.pathname =='/login.html'){
                     token=data?.token
 
                     localStorage.setItem('token', token)
-
+                    localStorage.setItem('userID', userID)
                     setTimeout(()=>{
                         reg_notification.innerHTML=''
                     },3000)
@@ -128,11 +130,11 @@ if(window.location.pathname =='/login.html'){
 
 
                 })
-            })
+            
 
             if(localStorage.getItem('token')){
                 // console.log("inside fetch");
-                fetch('http://localhost:4200/user/check', {
+              await fetch('http://localhost:4200/user/check', {
                     headers:{
                         'Accept': 'application/json',
                         'Content-type': 'application/json',
@@ -142,16 +144,15 @@ if(window.location.pathname =='/login.html'){
                 }).then(res => (res.json())).then(data=>{
                     console.log(data?.message);
 
-                    let userID =''
-
-                    userID = data?.info?.userID;
+                   userID = data?.info?.userID
+                   localStorage.setItem('userID', userID)
 
                     console.log(userID);
 
-                    localStorage.setItem('userID', userID)
+                    let i = localStorage.getItem('userID')
                     
-
-                    if(token && userID){
+                    // await()
+                    if(userID && token ){
                        window.location.href = '/index.html';  
                     }                  
                    
